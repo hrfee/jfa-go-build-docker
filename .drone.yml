@@ -25,6 +25,7 @@ steps:
 trigger:
     event:
         - cron
+        - push
 volumes:
     - name: ssh_key
       host:
