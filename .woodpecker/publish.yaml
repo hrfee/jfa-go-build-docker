@@ -12,4 +12,4 @@ steps:
             from_secret: DOCKER_TOKEN
         repo: docker.io/hrfee/jfa-go-build-docker
         registry: docker.io
-        platforms: linux/amd64, linux/arm64/v8
+        platforms: linux/arm64
