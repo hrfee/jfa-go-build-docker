@@ -6,10 +6,13 @@ RUN dpkg --add-architecture amd64 \
     && apt-get update -y
 
 FROM base AS arch-amd64
-RUN apt-get install gcc-aarch64-linux-gnu -y
+RUN apt-get install gcc-aarch64-linux-gnu gcc-arm-linux-gnueabihf -y
 
 FROM base AS arch-arm64
-RUN apt-get install gcc-x86-64-linux-gnu -y
+RUN apt-get install gcc-x86-64-linux-gnu gcc-arm-linux-gnueabihf -y
+
+FROM base AS arch-armhf
+RUN apt-get install gcc-aarch64-linux-gnu -y gcc-x86-64-linux-gnu -y
 
 FROM arch-${TARGETARCH} AS final
 RUN apt-get install libayatana-appindicator3-dev:amd64 -y \
